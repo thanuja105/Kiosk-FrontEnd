@@ -1,0 +1,156 @@
+<!-- Manager Report Component Starts Here -->
+<div id="managerreport_content" class="managerreport_content ccontent_part">
+    <div class="section_header">
+        <div class="page_name">Manager Report</div>
+    </div>
+    <div class="section_title">
+       
+    </div>
+    <div class="section_body">
+        <div class="row">
+            <div class="col-3 col-md-3 col-lg-3">
+                &nbsp;
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="cli_box">
+                            <div class="clabel">
+                                <label for="date">From</label>
+                            </div>
+                            <div class="cinput">
+                                <input type="date" id="start_date" [(ngModel)]="startDate" class="custom_Idate">
+                                <input type="time" id="myTime" value="00:00" class="custom_Itime"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="cli_box">
+                            <div class="clabel">
+                                <label for="date">To</label>
+                            </div>
+                            <div class="cinput">
+                                <input type="date" id="start_date" [(ngModel)]="endDate" class="custom_Idate">
+                                <input type="time" id="myTime" value="00:00" class="custom_Itime"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="cli_box">
+                            <div class="clabel">
+                                <label for="date">Select User</label>
+                            </div>
+                            <div class="cinput">
+                                <select class="form-select form-select-sm"   [(ngModel)]="selectedUser" aria-label=".form-select-sm example">
+                                    <option  *ngFor="let user of users" [ngValue]="user">{{user.username}}</option>
+                                   
+                                  </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="section_footer">
+        <button type="button" class="btn csecondary_btn" (click)="managerBillReport()">Insert Bills Report</button>
+        <button type="button" class="btn csecondary_btn" (click)="getChangeRequest()">Change Request Report</button>
+        <button type="button" class="btn csecondary_btn" (click)="getALLStandbankValues()">Stand Bank Report</button>
+              
+    </div>
+
+    
+
+    <div class="modal1" role="dialog" [ngStyle]="{'display':displayStyleConfirm}">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content1">
+              <div class="modal-header">
+                  <h5 class="modal-title">Stand Bank Type</h5>
+              </div>
+              <!-- <div class="modal-body">
+                  <h2>  Select Stand  </h2>
+              </div> -->
+              <div class="modal-footer">        
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="getStandBank('MAINSAFE')">Main Safe</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="getStandBank('SHIFTMANAGER')">Shift Manager Safe</button>
+                  <!-- <button type="button" class="btn caccept_btn" data-bs-dismiss="modal" (click)="getStandBank('SHIFTMANAGER')">Inter Safe</button> -->
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="getStandBankInter()">Inter Safe</button>
+                  <button type="button" class="btn caccept_btn" data-bs-dismiss="modal" (click)="cancelConfirm()">Cancel</button>
+
+                </div>
+          </div>
+      </div>
+    </div>
+
+<!-- 
+    <table>
+        <thead>
+            <th>denominations</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sts of ss; let i = index">
+                <td>{{sts.in_Values}}</td>
+            </tr>
+
+        </tbody>
+    </table> -->
+
+    <!-- <div class="section_footer" class="editaccount_content ccontent_part">
+
+        <div class="section_title">
+            <div class="row">
+                <div class="col-3 col-md-3 col-lg-3">
+                    <div class="clabel">
+                        <label for="name" class="form-label">denominations</label>
+                    </div>
+                </div>
+                <div class="col-3 col-md-3 col-lg-3">
+                    <div class="clabel">
+                        <label for="cpin" class="form-label"> in_Values</label>
+                    </div>
+                </div>
+                <div class="col-3 col-md-3 col-lg-3">
+                    <div class="clabel">
+                        <label for="pin" class="form-label">out_Values</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section_body">
+            <div class="row padTB4" *ngFor="let sts of ss; let i = index" >
+                <div class="col-3 col-md-3 col-lg-3">
+                    <div class="cli_box">                   
+                        <div class="cinput">
+                            <input type="text" class="form-control-sm" id="name" placeholder="Name"  [(ngModel)]="sts.denominations" disabled>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-3 col-md-3 col-lg-3">
+                    <div class="cli_box">                    
+                        <div class="cinput">
+                            <input type="password" class="form-control-sm" id="pin" placeholder="Pin"  [(ngModel)]="sts.in_Values" disabled>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-3 col-md-3 col-lg-3">
+                    <div class="cli_box">                   
+                        <div class="cinput">
+                            <input type="password" class="form-control-sm" id="cpin" placeholder="Confirm Pin"  [(ngModel)]="sts.out_Values" disabled>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="section_footer">
+            
+        </div>
+    </div> -->
+
+</div>
+<!-- Manager Report Component Ends Here -->
+
+
+

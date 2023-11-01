@@ -1,0 +1,72 @@
+<!-- Employee Maintenance Component Starts Here-->
+<div id="employeemaintenance_content" class="employeemaintenance_content ccontent_part">
+    
+    <div class="section_header">
+        <div class="page_name">Employee Maintenance</div>
+    </div>
+    <div class="section_title">
+        
+    </div>
+    <div class="section_body">
+        <div class="row height100">
+            <div class="col-12 col-md-12 col-lg-12 pad12">            
+                <div class="">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (click)="changeDays(30)">
+                        <label class="form-check-label txt_white" for="flexRadioDefault1">
+                            Delete employee within 30 days
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="changeDays(60)" checked>
+                        <label class="form-check-label txt_white" for="flexRadioDefault2">
+                            Delete employee within 60 days
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" (click)="changeDays(90)">
+                        <label class="form-check-label txt_white" for="flexRadioDefault3">
+                            Delete employee within 90 days
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                        <label class="form-check-label txt_white" for="flexRadioDefault4">
+                            Delete employee never
+                        </label>
+                    </div>
+                </div>
+                <div class="section_footer">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#confirm_popup" class="btn csecondary_btn" >SUBMIT</button>
+                </div>
+
+                <div class="modal fade common_modal" id="confirm_popup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirm_popup"  aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">          
+                        </div>
+                        <div class="modal-body">
+                          <div class="icon_box">
+                            X
+                          </div>
+                          <div class="conformation_message">
+                            Are you sure?
+                          </div>
+                          <div class="sub_text">
+                            Do you want to delete???
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn ccancel_btn" data-bs-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn caccept_btn" data-bs-dismiss="modal" 
+                           (click)="basedOnDaysDeleteRecord()">Proceed</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>        
+        </div>                             
+    </div>
+  
+</div>

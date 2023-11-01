@@ -1,0 +1,128 @@
+<!-- Create Store Component Starts Here -->
+<div id="createstore_content" class="createstore_content ccontent_part">
+   <form [formGroup]="setDefaultStorevalues">
+    <div class="section_header">
+        <div class="page_name">Configure Store</div>
+    </div>
+    <div class="section_title">
+        
+    </div>
+    
+    <div class="section_body commonForm">
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6">
+                <div class="cli_box"> 
+                    <div class="clabel">
+                        <label for="storename" class="form-label">Store Name</label>
+                    </div>                  
+                    <div class="cinput">
+                        <!-- <select class="form-control border-primary" formControlName="StoreName" [(ngModel)]="store" required id="store"
+                            (change)='onStoreSelected(store.storeName)' name="store" placeholder="Search Your Store Here ">
+                              <option [ngValue]="store" *ngFor="let store of stores">
+                                {{store.storeName}} </option>
+                            </select> -->
+                            <input type="text" style="pointer-events: none; opacity: 0.6 !important;" class="form-control-sm" formControlName="StoreName" id="storeno" placeholder="Enter Store Number" readonly>
+                        <!-- <input type="text" class="form-control-sm" id="storename" placeholder="Enter Store Name"> -->
+                    </div>
+                </div>
+                <div class="cli_box"> 
+                    <div class="clabel">
+                        <label for="bankname" class="form-label">Bank Name</label>
+                    </div>                  
+                    <div class="cinput">
+                        <input type="text" style="pointer-events: none; opacity: 0.6 !important;" class="form-control-sm" id="bankName" formControlName="BankName" placeholder="Enter Bank Name">
+                    </div>
+                </div>
+                <div class="cli_box"> 
+                    <div class="clabel">
+                        <label for="bankaccounntno" class="form-label">Account Number</label>
+                    </div>                  
+                    <div class="cinput">
+                        <input type="text" style="pointer-events: none; opacity: 0.6 !important;" class="form-control-sm" formControlName="AccountNumber" id="bankaccounntno" placeholder="Enter Account Number">
+                    </div>
+                </div>                 
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <div class="cli_box"> 
+                    <div class="clabel">
+                        <label for="storeno" class="form-label">Store Number</label>
+                    </div>                  
+                    <div class="cinput">
+                        <input type="text" style="pointer-events: none; opacity: 0.6 !important;" class="form-control-sm" formControlName="StoreNumber" id="storeno" placeholder="Enter Store Number" >
+                        <div class="form-control-position">
+                
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="cli_box"> 
+                    <div class="clabel">
+                        <label for="stateName" class="form-label">Address</label>
+                    </div>                  
+                    <div class="cinput">
+                        <input class="form-control" style="pointer-events: none; opacity: 0.6 !important;" id="stateName" formControlName="Address" rows="4" placeholder="Enter Address">
+                    </div>
+                </div>
+            </div>
+            <div class="cli_box"> 
+                <div class="clabel">
+                    <label for="storeno" class="form-label">Minimum Balance</label>
+                </div>                  
+                <div class="cinput">
+                    <input type="text" style="pointer-events: none; opacity: 0.6 !important;" class="form-control-sm" formControlName="MinimumBalance" id="minimumBalance" placeholder="Enter Minimum Balance" >
+                    <div class="form-control-position">
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section_footer">
+        
+        <button type="button" class="btn storecprimary_btn marR12"  data-bs-toggle="modal" data-bs-target="#confirm_popup" [disabled]="isDisable">Configure Store</button>
+        <button type="button" class="btn storecprimary_btn marR12" (click)="gotoHomeNav()">Cancel</button>
+    </div>
+    <div class="modal fade common_modal" id="confirm_popup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirm_popup"  aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">          
+            </div>
+            <div class="modal-body">
+              <div class="icon_box">
+                X
+              </div>
+              <div class="conformation_message">
+                Are you sure?
+              </div>
+              <div class="sub_text">
+                Do you want to configure the store???
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn ccancel_btn" data-bs-dismiss="modal">Cancel</button>
+              <button type="button"  class="btn caccept_btn" data-bs-dismiss="modal" 
+              (click)="configureStore()" >Proceed</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</form>
+</div>
+<div class="modal1" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content1">
+            <div class="modal-header">
+                <h5 class="modal-title">Status</h5>
+            </div>
+            <div class="modal-body">
+                <h2>{{dynamicText}}</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                   Ok
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Create Store Component Ends Here -->

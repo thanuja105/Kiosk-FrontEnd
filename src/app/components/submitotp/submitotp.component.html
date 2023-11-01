@@ -1,0 +1,85 @@
+<!-- Submit OTP Starts Here -->
+<div id="submitotp_content" class="submitotp_content ccontent_part">
+    <div class="section_header">
+        <div class="page_name">OTP Page</div>
+    </div>
+    <div class="section_title">
+        
+    </div>
+    <div class="section_body">
+        <div class="pin_section">
+            <form>
+                <div class="row custom_pin_width">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="">
+                            <input type="password" class="form-control" id="pin" name="pin" aria-describedby="pin" placeholder="Enter OTP" [(ngModel)]="pinValue">                                                    
+                        </div>
+                    </div>
+                </div>
+            </form>                                    
+        </div>                            
+    </div>
+    <div class="section_footer">       
+        <button type="button" class="btn btn-primary submitotp pin_submit" (click)="gotoTruckMain()">SUBMIT</button>
+        <!-- <div class="otc_btn">
+            <button type="button" class="btn cprimary_btn generate_otc_btn" (click)="getRecordss()">Generate OTC</button>
+        </div>         -->
+    </div>
+</div>  
+ 
+<!-- Submit OTP Component Ends Here -->
+<div class="modal1" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content1">
+            <div class="modal-header">
+                <h5 class="modal-title">Message</h5>
+            </div>
+            <div class="modal-body">
+                <h2>{{dynamicText}}</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                   Ok
+                </button>
+            </div>
+        </div>
+    </div>
+  </div> 
+
+  <div class="modal2" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStylee}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content2">
+            <div class="modal-header">
+                <h5 class="modal-title">Message</h5>
+            </div>
+            <div class="modal-body">
+                <h2>{{dynamicTextt}}</h2>
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-7">
+                <button type="button" class="btn btn-primary" (click)="closePopupp()">
+                   Click Here
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal2" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleee}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content2">
+            <div class="modal-header">
+                <h5 class="modal-title">Message</h5>
+            </div>
+            <div class="modal-body">
+                <h2>{{dynamicTexttt}}</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopuppp()">
+                   Ok
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
