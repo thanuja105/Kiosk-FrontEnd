@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StoreInfoRequest } from 'src/app/config/Model';
+import { Service } from 'src/app/services/Service';
 import { IpcService } from 'src/app/services/ipc.service';
 
 @Component({
@@ -9,7 +11,14 @@ import { IpcService } from 'src/app/services/ipc.service';
 })
 export class TruckmainComponent implements OnInit {
 
-  constructor(private router:Router, private ipcService: IpcService) { }
+  store = new StoreInfoRequest();
+  
+  stores: StoreInfoRequest[];
+  selectedStore = new StoreInfoRequest();
+  storeName: string | null;
+
+
+  constructor(private router:Router, private ipcService: IpcService,private service:Service) { }
 
   displayStyle = "none";
     dynamicText:string;
@@ -18,15 +27,17 @@ export class TruckmainComponent implements OnInit {
     openPopup() {
       this.displayStyle = "block";
     }
-
- 
+    
 
   gotoChangeTruckConfirmRequest()
     {
+      
       this.router.navigateByUrl('/changetruckconfirmrequest');
     }
     gotoDoorsexe()
     {
+     // this.storeName=localStorage.getItem("storeName");
+     // console.log("--------storename---------"+localStorage.getItem("storeName"));
       this.dynamicText ="Do You Want To Open the Vault Door.";
       this.openPopup();
       this.popupid = "raise_request";
@@ -40,6 +51,10 @@ export class TruckmainComponent implements OnInit {
   closePopup() {
     this.displayStyle = "none";
     if(this.dynamicText=="Do You Want To Open the Vault Door."){
+      this.storeName=localStorage.getItem("storeName");
+      console.log("--------storename in closepopup---------"+localStorage.getItem("storeName"));
+      this.service.withdrawreport(this.storeName).subscribe(data=>{
+      });
       this.router.navigateByUrl('/doorsexe');
     }
   }

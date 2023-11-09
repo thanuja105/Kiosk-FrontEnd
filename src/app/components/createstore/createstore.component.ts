@@ -79,6 +79,11 @@ export class CreatestoreComponent implements OnInit {
           item.userIds.forEach(element => {
             if (element == parseInt(this.useriD)) {
               this.store.id = item.id;
+              localStorage.setItem("storeid",JSON.stringify(this.store.id))
+              console.log("--------storeid----------"+localStorage.getItem("storeid"))
+              this.store.storeName = item.storeName;
+              localStorage.setItem("storeName",JSON.stringify(this.store.storeName))
+              console.log("--------storename---------"+localStorage.getItem("storeName"))
               this.isDisable=item.configured;
               this.setDefaultStorevalues.patchValue({
                 StoreName: item.storeName,
