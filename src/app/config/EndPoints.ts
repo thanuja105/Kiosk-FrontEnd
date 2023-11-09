@@ -165,4 +165,8 @@ export class EndPoints {
         return this.BASE_URL+"/datebase/remotesync";
     }
 
+    public static fetching_withdraw_report(storeName:string){
+        return this.BASE_URL+"/corp/report/"+storeName;
+    }
+
 }

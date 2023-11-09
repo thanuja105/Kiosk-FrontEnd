@@ -191,6 +191,8 @@ export class Service {
   remote_local(){
     return this.httpClient.get<any>(EndPoints.fetching_remote_local())
   }
-
+  withdrawreport(storeName:any){
+    return this.httpClient.get<any>(EndPoints.fetching_withdraw_report(storeName))
+  }
 
 }
