@@ -55,8 +55,11 @@ export class TruckmainComponent implements OnInit {
       console.log("--------storename in closepopup---------"+localStorage.getItem("storeName"));
       this.service.withdrawreport(this.storeName).subscribe(data=>{
       });
-      this.router.navigateByUrl('/doorsexe');
+      this.router.navigateByUrl('/truckmain');
     }
+  }
+  closeCancelButton(){
+    this.displayStyle = "none";
   }
 
 }
