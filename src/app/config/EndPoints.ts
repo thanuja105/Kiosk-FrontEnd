@@ -166,7 +166,11 @@ export class EndPoints {
     }
 
     public static fetching_withdraw_report(storeName:string){
-        return this.BASE_URL+"/corp/report/"+storeName;
+        return this.BASE_URL+"/reports/pickupamount/"+storeName;
+    }
+
+    public static fetching_update_withdraw_report(storeName:string){
+        return this.BASE_URL+"/reports/updatewithdrawsatus/"+storeName;
     }
 
 }

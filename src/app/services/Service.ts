@@ -194,5 +194,8 @@ export class Service {
   withdrawreport(storeName:any){
     return this.httpClient.get<any>(EndPoints.fetching_withdraw_report(storeName))
   }
+  Updatewithdrawreport(storeName:any){
+    return this.httpClient.get<any>(EndPoints.fetching_update_withdraw_report(storeName))
+  }
 
 }
